@@ -3,10 +3,7 @@ package br.com.agenda.Repositorio;
 import br.com.agenda.Factory.ConnectionFactory;
 import br.com.agenda.Model.*;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +24,7 @@ public class EspecialidadeDao {
         String sql = "INSERT INTO especialidade (cadastrado,nome) VALUES(now(),?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, especialidade.getNome());
             preparedStatement.execute();
 

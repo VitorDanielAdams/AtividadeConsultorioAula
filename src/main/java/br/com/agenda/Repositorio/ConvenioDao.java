@@ -24,7 +24,7 @@ public class ConvenioDao {
         String sql = "INSERT INTO convenio (cadastrado,nome,valor) VALUES(now(),?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, convenio.getNome());
             preparedStatement.setBigDecimal(2, convenio.getValor());
             preparedStatement.execute();

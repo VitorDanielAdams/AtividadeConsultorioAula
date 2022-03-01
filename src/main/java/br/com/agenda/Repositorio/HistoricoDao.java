@@ -25,7 +25,7 @@ public class HistoricoDao {
                 "id_secretaria,data) VALUES(now(),?,?,?,?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, historico.getAgenda().getId());
             preparedStatement.setString(2, historico.getObservacao());
             preparedStatement.setString(3, historico.getStatusAgendamento().valor);

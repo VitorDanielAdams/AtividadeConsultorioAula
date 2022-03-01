@@ -200,7 +200,7 @@ public class SecretariaDao {
         String sql = "UPDATE secretaria SET excluido = now() WHERE id = ?";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1, secretaria.getId());
             preparedStatement.execute();
             preparedStatement.close();

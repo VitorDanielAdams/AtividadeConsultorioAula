@@ -25,7 +25,7 @@ public class AgendaDao {
                 "VALUES(now(),?,?,?,?,?)";
 
         try{
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             preparedStatement.setLong(1,agenda.getPaciente().getId());
             preparedStatement.setLong(2, agenda.getMedico().getId());
             preparedStatement.setString(3, agenda.getStatusAgendamento().valor);

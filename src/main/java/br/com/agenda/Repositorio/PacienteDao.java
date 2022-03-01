@@ -26,7 +26,7 @@ public class PacienteDao {
                 "VALUES(now(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, paciente.getNome());
             preparedStatement.setString(2, paciente.getEmail());

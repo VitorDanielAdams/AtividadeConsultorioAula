@@ -26,7 +26,7 @@ public class MedicoDao {
                 "VALUES(now(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
 
             preparedStatement.setString(1, medico.getNome());
             preparedStatement.setString(2, medico.getEmail());
